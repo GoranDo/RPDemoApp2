@@ -1,0 +1,24 @@
+﻿@page
+@model RPDemoApp2.Pages.Order.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+@if (Model.Order is null)
+{
+    <h4>The requested record was not found</h4>
+}
+else
+{
+    <div class="h4">
+        Are you sure you want to delete the order you placed on @Model.Order.OrderDate?
+    </div>
+    <form method="post">
+        <input asp-action="Id" value="@Model.Id"type ="hidden" />
+        <div class="form-group">
+            <input type="submit" value="Delete order" class="btn btn-danger" />
+        </div>
+    </form>
+}
